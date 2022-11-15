@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+{% block content %} 
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SignUp</title>
+    <link rel="stylesheet" href="core.css">
+</head>
+<body>
+    <div class="signForm">
+        <h1 class="signuphead">Sign Up Now</h1>
+        <div>
+            <style>
+                h4{
+                    color: red;
+                }
+            </style>
+
+            {% for message in messages %}
+              <h4>{{message}}</h4>
+            {% endfor %}
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" id="input-box" placeholder="Username...">
+            <input type="text" name="firstname" id="input-box" placeholder="First Name...">
+            <input type="text" name="lastname" id="input-box" placeholder="Last Name...">
+            <input type="email" name="email" id="input-box" placeholder="Email...">
+            <input type="password" name="password" id="input-box" placeholder="Password....">
+            <input type="Password" name="password2" id="input-box" placeholder="Confirm password....">
+            <br>
+            <br>
+
+            <div>
+                <input type="checkbox" id="checkbox">
+                <span>
+                    I agree with the terms and conditions
+                </span>
+
+            </div>
+            <p  class>Thank you for signing up. Welcome!</p>
+            <button type="submit" id="signupbtn">SignUp</button>
+            <hr>
+            <p>Do you have an Account? <a href="#">Sign in</a></p>
+            
+            
+            
+        </form>
+    </div>
+</body>
+</html>
+{% endblock content %}
