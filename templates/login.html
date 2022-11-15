@@ -1,0 +1,52 @@
+{% extends "home.html" %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <div class="signForm">
+        <h1 class="signuphead">Sign In</h1>
+        <div>
+            <style>
+                h4{
+                    color: red;
+                }
+            </style>
+
+            {% for message in messages %}
+              <h4>{{message}}</h4>
+            {% endfor %}
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="username" id="input-box" placeholder="Username...">
+            <input type="password" name="password" id="input-box" placeholder="Password....">
+            <br>
+            <br>
+
+            <p  class="welcome">Connect with <strong> Family</strong></p>
+            <button type="submit" id="signupbtn">Signin</button>
+            <hr>
+            <p>If you don't  have an Account <a href="/signup/">Sign Up</a></p>
+            
+            
+            
+        </form>
+    </div>
+    
+</body>
+</html>
+
+
+
+
+
+  
+{% endblock content %}
