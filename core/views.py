@@ -29,7 +29,7 @@ def sign_up(request):
                 new_user.save()
 
                 user_model = User.objects.get(username=username)
-                user_profile = Authentication.objects.create(user=user_model, id_user = user_model.id) 
+                user_profile = Profile.objects.create(user=user_model, id_user = user_model.id) 
                 return redirect('login')
         
         else:

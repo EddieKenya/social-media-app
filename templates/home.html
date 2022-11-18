@@ -1,5 +1,240 @@
 {% extends "index.html" %}
+{% load static %}
 {% block content %}
-<h1>Welcome to my social media page</h1>
   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialBook -Kicheko</title>
+    <link rel="stylesheet" href="stylist.css">
+    <script src="https://kit.fontawesome.com/89ae505745.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <img src='{% static "images/logo.png" %}'class="logo" >
+            <ul>
+                <li><img src="{% static 'images/notification.png'%}"   ></li>
+                <li> <img src="{% static 'images/inbox.png'%}" ></li>
+                <li><img src="{% static 'images/video.png'%}" ></li>
+            </ul>
+        </div>
+       
+        <div class="nav-right">
+
+            <div class="search-box">
+                <img src="{% static 'images/search.png'%}" >
+                <input class="searchboxinput" type="text" placeholder="Search...">
+            </div>
+            <div class="navusericon  online ">
+                <img src="{% static 'images/profile-pic.png' %}">
+                <span><a href="#">Settings</a> </span>
+                <span><a href="#">LogOut</a> </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- left-sidebar -->
+        <div class="left-sidebar">
+            <div class="imp-links">
+                <a href="#"><img src="{% static 'images/group.png'%}" >Groupings</a>
+                <a href="#"><img src="{% static 'images/marketplace.png'%}">ecommerce</a>
+                <a href="#">See More</a>
+
+            </div>
+            <div class="shortcut-links">
+                <p>Your Shortcuts</p>
+                <a href="#"><img src="{%static 'images/shortcut-3.png'}" >Web Full Stack Developers</a>
+                <a href="#"><img src="{%static 'images/shortcut-4.png'%}" >Fantasy Premierleague</a>
+            </div>
+        </div>
+        <!-- main-cotent -->
+        <div class="write-post-container">
+            <div class="user-profile">
+                <img src="{% static 'images/profile-pic.png'}" >
+                <div>
+                    <p>John Nicholas</p>
+                    
+                    <small>Public <i class="fas fa-caret-down"></i></small>
+                </div>
+            </div>
+            <div class="post-input-container">
+                <textarea  rows="3" placeholder="Whats on your mind .."></textarea>
+            </div>
+            <div class="add-post-links">
+                <a href="#"><img src="{% static 'images/photo.png'%}" > Upload Photos</a>
+            </div>
+
+            <div>
+                <div class="post-container">
+                    <div class="user-profile">
+                        <img src="{% static 'images/profile-pic.png'%}" >
+                        <div>
+                            <p>John Nicholas</p>
+                            <small>Public <i class="fas fa-caret-down"></i></small>
+                        </div>
+                    </div> 
+                    <div>
+                       <img src="{% static 'images/feed-image-1.png'%}" class="post-img" >
+                       <p class="post-text">hello buddies</p>
+                    </div>
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <div>
+                                <img src="{% static 'images/like-blue.png'%}" >120
+                            </div>
+                            <div>
+                                <img src="{% static 'images/comments.png'%}" >45
+                            </div>
+                            <div>
+                                <img src="{% static 'images/share.png'%}" >2
+                            </div>
+
+                        </div>
+                       
+                    </div>
+    
+                </div>
+            </div>
+            <div>
+                <div class="post-container">
+                    <div class="user-profile">
+                        <img src="{% static 'images/profile-pic.png' %}" >
+                        <div>
+                            <p>John Nicholas</p>
+                            <small>Public <i class="fas fa-caret-down"></i></small>
+                        </div>
+                    </div> 
+                    <div>
+                       <img src="{% static 'images/feed-image-1.png'%}" class="post-img" >
+                       <p class="post-text">hello buddies</p>
+                    </div>
+                    <div class="post-row">
+                        <div class="activity-icons">
+                            <div>
+                                <img src="{% static 'images/like-blue.png'%}" >120
+                            </div>
+                            <div>
+                                <img src="{% static 'images/comments.png'%}" >45
+                            </div>
+                            <div>
+                                <img src="{% static 'images/share.png'%}" >2
+                            </div>
+
+                        </div>
+                       
+                    </div>
+                    <div>
+                        <div class="post-container">
+                            <div class="user-profile">
+                                <img src="{% static 'images/profile-pic.png'%}" >
+                                <div>
+                                    <p>John Nicholas</p>
+                                    <small>Public <i class="fas fa-caret-down"></i></small>
+                                </div>
+                            </div> 
+                            <div>
+                               <img src="{% static 'images/feed-image-1.png'%}" class="post-img" >
+                               <p class="post-text">hello buddies</p>
+                            </div>
+                            <div class="post-row">
+                                <div class="activity-icons">
+                                    <div>
+                                        <img src="{% static 'images/like-blue.png'%}" >120
+                                    </div>
+                                    <div>
+                                        <img src="{% static 'images/comments.png'%}" >45
+                                    </div>
+                                    <div>
+                                        <img src="{%static 'images/share.png'%}" >2
+                                    </div>
+        
+                                </div>
+                               
+                            </div>
+            
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+
+        <!-- right-sidebar -->
+        <div class="right-sidebar">
+            <div class="sidebar-title">
+                <h4>Events</h4>
+                <a href="#">See All</a>
+            </div>
+
+            <div class="event">
+                <dv class="left-event">
+                    <h3>18</h3>
+                    <span>March</span>
+
+                </dv>
+                <div class="right-event">
+                    <h4>Social Media</h4>
+                    <p><i class="fa-sharp fa-solid fa-location-dot"></i>Technical University of Kenya</p>
+                    <a href="#">More Info</a>
+                </div>
+                
+            </div>
+            <div class="event">
+                <dv class="left-event">
+                    <h3>20</h3>
+                    <span>December</span>
+
+                </dv>
+                <div class="right-event">
+                    <h4>Social Media</h4>
+                    <p><i class="fa-sharp fa-solid fa-location-dot"></i>Technical University of Kenya</p>
+                    <a href="#">More Info</a>
+                </div>
+                
+            </div>
+            <div class="sidebar-title">
+                <h4>Advertisement</h4>
+                <a href="#">Close</a>
+            </div>
+            <img src="{%static 'images/advertisement.png'%}" class="sidebar-ads">
+
+            <div class="sidebar-title">
+                <h4>Conversation</h4>
+                <a href="#">Hide Chat</a>
+            </div>
+
+
+            <div class="online-list">
+                <div class="online">
+                    <img src="{% static 'images/member-1.png'%}" alt="">
+                </div>
+                <p>Timothy Simiyu</p>
+            </div>
+            <div class="online-list">
+                <div class="online">
+                    <img src="{% static 'images/member-2.png'}" alt="">
+                </div>
+                <p>Catherine Nasimiyu</p>
+            </div>
+            <div class="online-list">
+                <div class="online">
+                    <img src="{% static 'images/member-3.png'%}" alt="">
+                </div>
+                <p>Danstone Muteshi</p>
+            </div>
+
+
+        </div>
+    </div>
+<div class="footer">
+    <p> Designed by Edwin Makhanu ,Django developer contact : <a href="mailto:edwinmakhanu630@gmail.com" target="_blank">edwinmakhanu630@gmail.com</a></p>
+</div>
+</body>
+</html>
+
 {% endblock content %}
