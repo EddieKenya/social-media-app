@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages,auth
 from.models import *
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def sign_up(request):
@@ -23,9 +24,9 @@ def sign_up(request):
                 return redirect('signup')
             else:
                 new_user = User.objects.create_user(username=username, email=email,  password=passwword)
-                new_user.is_active = False
-                new_user.first_name = firstname
-                new_user.last_name = lastname
+                # new_user.is_active = False
+                # new_user.first_name = firstname
+                # new_user.last_name = lastname
                 new_user.save()
 
                 user_model = User.objects.get(username=username)
@@ -38,7 +39,8 @@ def sign_up(request):
             
     else:
         return render(request, 'signup.html')
-    
+
+@login_required(login_url='login')
 def home (request):
     return render (request, 'home.html')
 
@@ -49,7 +51,7 @@ def login (request):
 
         
 
-        user = auth.authenticate(username =username, password =password)
+        user = auth.authenticate(username=username, password=password)
 
         if user is not None:
             auth.login( request, user)
@@ -62,4 +64,8 @@ def login (request):
 
     else:
         return render(request, 'login.html')
-   
+
+@login_required(login_url='login')
+def logout(request):
+    auth.logout(request) 
+    return redirect('login')  
