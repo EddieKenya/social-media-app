@@ -1,15 +1,6 @@
 {% extends "index.html" %}
 {% block content %} 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SignUp</title>
-    <link rel="stylesheet" href="core.css">
-</head>
-<body>
+
     <div class="signForm">
         <h1 class="signuphead">Sign Up Now</h1>
         <div>
@@ -44,12 +35,12 @@
             <p  class>Thank you for signing up. Welcome!</p>
             <button type="submit" id="signupbtn">SignUp</button>
             <hr>
-            <p>Do you have an Account? <a href="/login/">Sign in</a></p>
+            <p>You have an Account? <a href="/login/">Sign in</a></p>
+            <a href="{% url 'login' %}">SIGNUP</a>
             
             
             
         </form>
     </div>
-</body>
-</html>
+
 {% endblock content %}

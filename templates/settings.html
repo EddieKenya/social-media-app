@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+    <style>
+        .settings{
+    margin: 0;
+    padding: 0;
+    font-family: 'poppins',sans-serif;
+    box-sizing: border-box;
+    background-color: #efefef;
+    
+}
+
+.settings-div{
+     
+    margin: 30px 0;
+    
+}
+
+#input-settings{
+    padding: 10px;
+    width: 300px;
+}
+
+#settingsbtn{
+    color: #fff;
+    align-items: center;
+    padding: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    margin: 10px 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: rgb(98, 175, 98);
+    
+
+    
+}
+
+.settingsbtn:hover{
+    background-color: rgb(116, 100, 100);
+}
+
+.settingsbtn:active{
+    background-color: black;
+
+}
+
+
+    </style>
+</head>
+<body class="settings">
+    <div class="signForm">
+        <h1 class="signuphead"> <a href="{% url 'home' %}">Home/ </a> Settings for: {{user.username}}</h1>
+        <hr>
+      
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="settings-div">
+                <label for="firstname ">Profile Picture</label>
+                <img width="100" height="100" src="{{user_profile.profileimg.url}}" >
+                <input type="file" id="input-settings" name="image"  value="">
+            </div>
+            <div class="settings-div">
+                <label for="firstname ">Firstname</label>
+
+                <input type="text" id="input-settings" name="firstname" value="{{user_profile.first_name }}">
+            </div>
+            <div class="settings-div">
+                <label for="lastname ">Lastname</label>
+
+                <input type="text" id="input-settings" name="lastname"  value="{{user_profile.second_name}}">
+            </div>
+            <div class="settings-div">
+                <label for="Bio ">Bio</label>
+                <textarea name="bio"  cols="30" rows="10">{{user_profile.bio}}</textarea>
+            </div>
+            <div>
+                <label for="Location ">Location</label>
+
+                <input type="text" id="input-settings" name="location"  value="{{user_profile.location}}">
+            </div>
+            <br>
+            <br>
+            
+          
+            <button type="submit" id="settingsbtn">Submit</button>
+               
+        </form>
+    </div>
+</body>
+</html>
+
