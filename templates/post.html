@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block content %}
+
+    <div class="signForm">
+        <h1 class="signuphead"> <a href="{% url 'home' %}">Back/ </a> Uploads for: {{user.username}}</h1>
+        <hr>
+      
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="settings-div">
+                <label for="post_feed "> <b>Post_feed</b> </label>
+                <br>
+                <br>
+                <img src="" >
+                <input type="file" id="input-settings" name="image"  value="">
+            </div>
+            <br>
+            
+            <div class="settings-div">
+                <label for='caption' ><b>Caption</b> </label>
+                <textarea name="caption"  cols="30" rows="5"></textarea>
+            </div>
+         
+            <br>
+            <br>
+            
+          
+            <button type="submit" id="settingsbtn">Submit</button>
+               
+        </form>
+    </div>
+{% endblock content %}
+
+

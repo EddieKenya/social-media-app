@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+import uuid
 
 
 class Profile(models.Model):
@@ -15,9 +17,18 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
-class Tweets (models.Model):
-    content = models.TextField(blank=True, null=True)
-    images_video = models.FileField(upload_to='postedfiles', blank=True, null=True)
+class Post (models.Model):
+    user = models.CharField(max_length=200)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
+    posts_image= models.ImageField(upload_to='post_images')
+    caption = models.TextField()
+    no_of_likes = models.IntegerField(default=0)
+    date_created = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.user
+
+    
 
 
 # Create your models here.

@@ -42,7 +42,10 @@ def sign_up(request):
 
 @login_required(login_url='login')
 def home (request):
-    return render (request, 'home.html')
+    user_profile = Profile.objects.get(user = request.user)
+    user_posts = Post.objects.all
+
+    return render (request, 'home.html', {'user_profile': user_profile, 'userpost':user_posts})
 
 def login (request):
     if request.method == 'POST':
@@ -72,6 +75,7 @@ def logout(request):
 
 @login_required(login_url='login')
 def settings(request):
+
     user_profile = Profile.objects.get (user= request.user)
 
     if request.method == 'POST':
@@ -103,3 +107,18 @@ def settings(request):
             user_profile.location = location
             user_profile.save()
     return render( request, 'settings.html', {'user_profile':user_profile})  
+
+def post (request):
+
+    if request.method == 'POST':
+    
+        if request.FILES.get('image') != None:
+            user = request.user.username
+            post_image = request.FILES.get('image')
+            caption = request.POST['caption']
+
+            new_post = Post.objects.create(user=user, posts_image=post_image, caption=caption)
+            new_post.save()
+            return redirect('home')
+       
+    return render ( request , 'post.html')

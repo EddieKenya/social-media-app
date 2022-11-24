@@ -30,7 +30,7 @@
                 <input class="searchboxinput" type="text" placeholder="Search...">
             </div>
             <div class="navusericon  online ">
-                <img src="{% static 'images/profile-pic.png' %}">
+                <img src="{{user_profile.profileimg.url}}">
                 <span><a href="{% url 'settings' %}">Settings</a> </span>
                 <span><a href="logout/">LogOut</a> </span>
             </div>
@@ -55,9 +55,9 @@
         <!-- main-cotent -->
         <div class="write-post-container">
             <div class="user-profile">
-                <img src="{% static 'images/profile-pic.png'}" >
+                <img src="{{user_profile.profileimg.url}}" >
                 <div>
-                    <p>John Nicholas</p>
+                    <p>{{user_profile.first_name}}</p>
                     
                     <small>Public <i class="fas fa-caret-down"></i></small>
                 </div>
@@ -66,102 +66,44 @@
                 <textarea  rows="3" placeholder="Whats on your mind .."></textarea>
             </div>
             <div class="add-post-links">
-                <a href="#"><img src="{% static 'images/photo.png'%}" > Upload Photos</a>
+                <a href="{% url 'post'%}"><img src="{% static 'images/photo.png'%}" > Upload Photos</a>
             </div>
-
-            <div>
-                <div class="post-container">
-                    <div class="user-profile">
-                        <img src="{% static 'images/profile-pic.png'%}" >
+            {% for post in userpost reversed %}
+              
+                <div>
+                    <div class="post-container">
+                        <div class="user-profile">
+                            <img src="{{user_profile.profileimg.url}}" >
+                            <div>
+                                <p>{{post.user}}</p>
+                                <small>Public <i class="fas fa-caret-down"></i></small>
+                            </div>
+                        </div> 
                         <div>
-                            <p>John Nicholas</p>
-                            <small>Public <i class="fas fa-caret-down"></i></small>
+                        <img src="{{post.posts_image.url}}" class="post-img" >
+                        <p class="post-text">{{post.caption}}</p>
                         </div>
-                    </div> 
-                    <div>
-                       <img src="{% static 'images/feed-image-1.png'%}" class="post-img" >
-                       <p class="post-text">hello buddies</p>
-                    </div>
-                    <div class="post-row">
-                        <div class="activity-icons">
-                            <div>
-                                <img src="{% static 'images/like-blue.png'%}" >120
-                            </div>
-                            <div>
-                                <img src="{% static 'images/comments.png'%}" >45
-                            </div>
-                            <div>
-                                <img src="{% static 'images/share.png'%}" >2
-                            </div>
-
-                        </div>
-                       
-                    </div>
-    
-                </div>
-            </div>
-            <div>
-                <div class="post-container">
-                    <div class="user-profile">
-                        <img src="{% static 'images/profile-pic.png' %}" >
-                        <div>
-                            <p>John Nicholas</p>
-                            <small>Public <i class="fas fa-caret-down"></i></small>
-                        </div>
-                    </div> 
-                    <div>
-                       <img src="{% static 'images/feed-image-1.png'%}" class="post-img" >
-                       <p class="post-text">hello buddies</p>
-                    </div>
-                    <div class="post-row">
-                        <div class="activity-icons">
-                            <div>
-                                <img src="{% static 'images/like-blue.png'%}" >120
-                            </div>
-                            <div>
-                                <img src="{% static 'images/comments.png'%}" >45
-                            </div>
-                            <div>
-                                <img src="{% static 'images/share.png'%}" >2
-                            </div>
-
-                        </div>
-                       
-                    </div>
-                    <div>
-                        <div class="post-container">
-                            <div class="user-profile">
-                                <img src="{% static 'images/profile-pic.png'%}" >
+                        <br>
+                        <div class="post-row">
+                            <div class="activity-icons">
                                 <div>
-                                    <p>John Nicholas</p>
-                                    <small>Public <i class="fas fa-caret-down"></i></small>
+                                    <img src="{% static 'images/like-blue.png'%}" >120
                                 </div>
-                            </div> 
-                            <div>
-                               <img src="{% static 'images/feed-image-1.png'%}" class="post-img" >
-                               <p class="post-text">hello buddies</p>
-                            </div>
-                            <div class="post-row">
-                                <div class="activity-icons">
-                                    <div>
-                                        <img src="{% static 'images/like-blue.png'%}" >120
-                                    </div>
-                                    <div>
-                                        <img src="{% static 'images/comments.png'%}" >45
-                                    </div>
-                                    <div>
-                                        <img src="{%static 'images/share.png'%}" >2
-                                    </div>
-        
+                                <div>
+                                    <img src="{% static 'images/comments.png'%}" >45
                                 </div>
-                               
+                                <div>
+                                    <img src="{% static 'images/share.png'%}" >2
+                                </div>
+
                             </div>
-            
+                        
                         </div>
+        
                     </div>
-    
                 </div>
-            </div>
+            {% endfor %}
+         
         </div>
 
         <!-- right-sidebar -->
