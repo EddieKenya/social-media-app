@@ -44,6 +44,7 @@ def sign_up(request):
 def home (request):
     user_profile = Profile.objects.get(user = request.user)
     user_posts = Post.objects.all
+    
 
     return render (request, 'home.html', {'user_profile': user_profile, 'userpost':user_posts})
 
@@ -122,3 +123,25 @@ def post (request):
             return redirect('home')
        
     return render ( request , 'post.html')
+
+def like(request):
+    username = request.user.username
+    post_id = request.GET.get('post_id')
+
+    post= Post.objects.get(id=post_id)
+
+    user_filter= likes.objects.filter(username=username, post_liked=post_id).first()
+
+    if user_filter == None:
+        new_like = likes.objects.create(username=username, post_liked=post_id)
+        new_like.save()
+        post.no_of_likes += 1
+        post.save()
+        return redirect('home')
+    else:
+        user_filter.delete()
+        post.no_of_likes -=1
+        post.save()
+        return redirect('home')
+        
+

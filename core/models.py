@@ -28,7 +28,12 @@ class Post (models.Model):
     def __str__(self):
         return self.user
 
-    
+class likes(models.Model):
+    username = models.CharField(max_length=50)
+    post_liked = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.post_liked
 
 
 # Create your models here.

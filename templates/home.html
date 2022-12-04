@@ -86,9 +86,11 @@
                         <br>
                         <div class="post-row">
                             <div class="activity-icons">
-                                <div>
-                                    <img src="{% static 'images/like-blue.png'%}" >120
-                                </div>
+                                <a href="/like?post_id={{post.id}}">
+                                    <div>
+                                        <img src="{% static 'images/like-blue.png'%}" >{{post.no_of_likes}}
+                                    </div>
+                                </a>
                                 <div>
                                     <img src="{% static 'images/comments.png'%}" >45
                                 </div>
