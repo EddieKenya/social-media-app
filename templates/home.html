@@ -91,12 +91,20 @@
                                         <img src="{% static 'images/like-blue.png'%}" >{{post.no_of_likes}}
                                     </div>
                                 </a>
+
+                                <a href="#">
+
+                                    <div>
+                                        <img src="{% static 'images/comments.png'%}" >45
+                                    </div>
+                                </a>
+
                                 <div>
-                                    <img src="{% static 'images/comments.png'%}" >45
+                                    <a href="{{post.posts_image.url}}" download>
+                                        <i class="fa-solid fa-cloud-arrow-down"></i>
+                                    </a>
                                 </div>
-                                <div>
-                                    <img src="{% static 'images/share.png'%}" >2
-                                </div>
+                            
 
                             </div>
                         
