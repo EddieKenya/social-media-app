@@ -54,17 +54,17 @@
         </div>
         <!-- main-cotent -->
         <div class="write-post-container">
-            <div class="user-profile">
+            <!-- <div class="user-profile">
                 <img src="{{user_profile.profileimg.url}}" >
                 <div>
                     <p>{{user_profile.first_name}}</p>
                     
                     <small>Public <i class="fas fa-caret-down"></i></small>
                 </div>
-            </div>
-            <div class="post-input-container">
+            </div> -->
+            <!-- <div class="post-input-container">
                 <textarea  rows="3" placeholder="Whats on your mind .."></textarea>
-            </div>
+            </div> -->
             <div class="add-post-links">
                 <a href="{% url 'post'%}"><img src="{% static 'images/photo.png'%}" > Upload Photos</a>
             </div>
@@ -92,10 +92,10 @@
                                     </div>
                                 </a>
 
-                                <a href="#">
+                                <a href="/comments?post_id={{post.id}}">
 
                                     <div>
-                                        <img src="{% static 'images/comments.png'%}" >45
+                                        <img src="{% static 'images/comments.png'%}" >
                                     </div>
                                 </a>
 

@@ -9,4 +9,5 @@ urlpatterns = [
     path('settings/', views.settings, name='settings'),
     path('post/', views.post, name='post'),
     path('like/',views.like, name='like'),
+    path('comments/', views.comments, name='comments'),
 ]

@@ -23,6 +23,7 @@ class Post (models.Model):
     posts_image= models.ImageField(upload_to='post_images')
     caption = models.TextField()
     no_of_likes = models.IntegerField(default=0)
+    post_no_comments =models.IntegerField(default=0)
     date_created = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
@@ -34,6 +35,15 @@ class likes(models.Model):
 
     def __str__(self):
         return self.post_liked
+
+class Comments(models.Model):
+    username = models.CharField(max_length=50)
+    post_commented= models.CharField(max_length=500, default='post_id')
+    comments= models.TextField(blank=True)
+
+    def __str__(self):
+        return self.username
+
 
 
 # Create your models here.

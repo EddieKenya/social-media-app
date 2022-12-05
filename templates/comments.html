@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block content %}
+<a href="{% url 'home' %}"><strong>Home</strong></a>
+{% for comment in comments %}
+<div class="container">
+
+    <div >
+        <h4>{{comment.username}}</h4>
+        <p>{{comment.comments}}</p>
+    </div>
+      
+</div>
+{% endfor %}
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <div class="user-profile">
+        <img src="{{post.posts_image.url}}" >
+        <div>
+            <p>{{post.caption}}</p>
+        </div>
+    </div> 
+    <div >
+        <textarea name="comments"  rows="5" cols="80" placeholder="comment here .."></textarea>
+        <button type="submit">submit</button>
+    </div> 
+</form>
+
+  
+{% endblock content %}

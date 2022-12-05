@@ -45,8 +45,14 @@ def home (request):
     user_profile = Profile.objects.get(user = request.user)
     user_posts = Post.objects.all
     
+    context={
+        'user_profile': user_profile,
+        'userpost':user_posts,
 
-    return render (request, 'home.html', {'user_profile': user_profile, 'userpost':user_posts})
+    }
+    
+
+    return render (request, 'home.html', context)
 
 def login (request):
     if request.method == 'POST':
@@ -143,5 +149,31 @@ def like(request):
         post.no_of_likes -=1
         post.save()
         return redirect('home')
+
+
+def comments(request):
+    post_commented = request.GET.get('post_id')
+
+    post= Post.objects.get(id=post_commented)
+
+    if request.method == 'POST':
+        username = request.user.username
+        comment_post = request.GET.get('post_id')
+        new_comments = request.POST['comments']
+
+        comments_section = Comments.objects.create(username=username, post_commented=comment_post, comments=new_comments)
+        comments_section.save()
         
+        
+
+
+    comments= Comments.objects.all()
+
+    context={
+        'post': post,
+        'comments': comments
+    }
+
+    return render(request, 'comments.html',context)
+                                                    
 

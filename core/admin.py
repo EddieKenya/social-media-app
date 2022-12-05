@@ -5,6 +5,7 @@ from.models import *
 admin.site.register(Profile)
 admin.site.register(Post)
 admin.site.register(likes)
+admin.site.register(Comments)
 
 
 # Register your models here.
