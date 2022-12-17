@@ -26,6 +26,9 @@ nav{
 
 .logo{
     width: 160px;
+    font-weight: bolder;
+    font-size: xx-large;
+    color: rgb(51, 51, 206);
     margin-right: 45px;
 }
 

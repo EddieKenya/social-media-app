@@ -44,6 +44,7 @@ def sign_up(request):
 def home (request):
     user_profile = Profile.objects.get(user = request.user)
     user_posts = Post.objects.all
+   
     
     context={
         'user_profile': user_profile,
@@ -158,16 +159,18 @@ def comments(request):
 
     if request.method == 'POST':
         username = request.user.username
-        comment_post = request.GET.get('post_id')
+        comment_post = post_commented
         new_comments = request.POST['comments']
 
         comments_section = Comments.objects.create(username=username, post_commented=comment_post, comments=new_comments)
         comments_section.save()
+        post.post_no_comments=Comments.objects.count(post_commented=comment_post)
+        
         
         
 
 
-    comments= Comments.objects.all()
+    comments= Comments.objects.filter(post_commented=post.id)
 
     context={
         'post': post,

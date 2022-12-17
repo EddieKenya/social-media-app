@@ -8,27 +8,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SocialBook -Kicheko</title>
+    <title>Kicheko</title>
     <link rel="stylesheet" href="stylist.css">
     <script src="https://kit.fontawesome.com/89ae505745.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <nav>
         <div class="nav-left">
-            <img src='{% static "images/logo.png" %}'class="logo" >
+            <p class="logo"> <strong >Eddie's Website</strong></p>
             <ul>
-                <li><img src="{% static 'images/notification.png'%}"   ></li>
-                <li> <img src="{% static 'images/inbox.png'%}" ></li>
-                <li><img src="{% static 'images/video.png'%}" ></li>
+                
+                
+
+                
             </ul>
         </div>
        
         <div class="nav-right">
 
-            <div class="search-box">
+            <!-- <div class="search-box">
                 <img src="{% static 'images/search.png'%}" >
                 <input class="searchboxinput" type="text" placeholder="Search...">
-            </div>
+            </div> -->
             <div class="navusericon  online ">
                 <img src="{{user_profile.profileimg.url}}">
                 <span><a href="{% url 'settings' %}">Settings</a> </span>
@@ -41,16 +42,27 @@
         <!-- left-sidebar -->
         <div class="left-sidebar">
             <div class="imp-links">
-                <a href="#"><img src="{% static 'images/group.png'%}" >Groupings</a>
-                <a href="#"><img src="{% static 'images/marketplace.png'%}">ecommerce</a>
-                <a href="#">See More</a>
+                <p><strong>Competency</strong></p>
+            
 
             </div>
             <div class="shortcut-links">
-                <p>Your Shortcuts</p>
-                <a href="#"><img src="{%static 'images/shortcut-3.png'}" >Web Full Stack Developers</a>
-                <a href="#"><img src="{%static 'images/shortcut-4.png'%}" >Fantasy Premierleague</a>
+                <i class="fa-brands fa-js"></i>
+                <p>Javascript</p>
             </div>
+            <div class="shortcut-links">
+                <i class="fa-brands fa-html5"></i>
+                <p>HTML</p>
+            </div>
+            <div class="shortcut-links">
+                <i class="fa-brands fa-css3-alt"></i>
+                <p>CSS</p>
+            </div>
+            <div class="shortcut-links">
+                <i class="fa-solid fa-database"></i>
+                <p>Mysql</p>
+            </div>
+            
         </div>
         <!-- main-cotent -->
         <div class="write-post-container">
@@ -92,7 +104,7 @@
                                     </div>
                                 </a>
 
-                                <a href="/comments?post_id={{post.id}}">
+                                <a href="/comments?post_id={{post.id}}">{{post.post_no_comments}}
 
                                     <div>
                                         <img src="{% static 'images/comments.png'%}" >
@@ -104,6 +116,7 @@
                                         <i class="fa-solid fa-cloud-arrow-down"></i>
                                     </a>
                                 </div>
+                                
                             
 
                             </div>
@@ -118,66 +131,55 @@
 
         <!-- right-sidebar -->
         <div class="right-sidebar">
-            <div class="sidebar-title">
-                <h4>Events</h4>
-                <a href="#">See All</a>
-            </div>
+            
 
             <div class="event">
-                <dv class="left-event">
-                    <h3>18</h3>
-                    <span>March</span>
-
-                </dv>
-                <div class="right-event">
-                    <h4>Social Media</h4>
-                    <p><i class="fa-sharp fa-solid fa-location-dot"></i>Technical University of Kenya</p>
-                    <a href="#">More Info</a>
-                </div>
+                
+               
                 
             </div>
             <div class="event">
-                <dv class="left-event">
-                    <h3>20</h3>
-                    <span>December</span>
-
-                </dv>
-                <div class="right-event">
-                    <h4>Social Media</h4>
-                    <p><i class="fa-sharp fa-solid fa-location-dot"></i>Technical University of Kenya</p>
-                    <a href="#">More Info</a>
-                </div>
+                
+               
                 
             </div>
             <div class="sidebar-title">
-                <h4>Advertisement</h4>
-                <a href="#">Close</a>
+                <h4>DjangoDeveloper (Unemployed)</h4>
+                
             </div>
             <img src="{%static 'images/advertisement.png'%}" class="sidebar-ads">
 
             <div class="sidebar-title">
-                <h4>Conversation</h4>
-                <a href="#">Hide Chat</a>
+                <h4>Contact me </h4>
+                
             </div>
 
 
             <div class="online-list">
                 <div class="online">
-                    <img src="{% static 'images/member-1.png'%}" alt="">
+                    <i class="fa-brands fa-twitter"></i>
+                    <a href="https://twitter.com/eddiemakhanu" target="_blank">Twitter</a>
                 </div>
-                <p>Timothy Simiyu</p>
+            </div>
+        
+            <div class="online-list">
+                <div class="online">
+                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://www.instagram.com/eddie_k.e" target="_blank">Instagram</a>
+                </div>
+                
             </div>
             <div class="online-list">
                 <div class="online">
-                    <img src="{% static 'images/member-2.png'}" alt="">
+                    <i class="fa-brands fa-square-facebook"></i>
+                    <a href="https://web.facebook.com/eddie.maxkhalifa/" target="_blank">Facebook</a>
                 </div>
-                <p>Catherine Nasimiyu</p>
             </div>
             <div class="online-list">
                 <div class="online">
-                    <img src="{% static 'images/member-3.png'%}" alt="">
+                    <i class="fa-brands fa-github"></i>
+                    <a href="https://github.com/EddieKenya?tab=repositories" target="_blank">Github</a>
                 </div>
-                <p>Danstone Muteshi</p>
             </div>
 
 

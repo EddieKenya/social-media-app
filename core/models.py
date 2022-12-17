@@ -20,7 +20,7 @@ class Profile(models.Model):
 class Post (models.Model):
     user = models.CharField(max_length=200)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-    posts_image= models.ImageField(upload_to='post_images')
+    posts_image= models.ImageField(upload_to='post_images', blank=True, null=True)
     caption = models.TextField()
     no_of_likes = models.IntegerField(default=0)
     post_no_comments =models.IntegerField(default=0)
