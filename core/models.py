@@ -21,7 +21,7 @@ class Post (models.Model):
     user = models.CharField(max_length=200)
     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     posts_image= models.ImageField(upload_to='post_images', blank=True, null=True)
-    caption = models.TextField()
+    caption = models.TextField(blank=True,null=True)
     no_of_likes = models.IntegerField(default=0)
     post_no_comments =models.IntegerField(default=0)
     date_created = models.DateTimeField(default=timezone.now)
@@ -39,7 +39,8 @@ class likes(models.Model):
 class Comments(models.Model):
     username = models.CharField(max_length=50)
     post_commented= models.CharField(max_length=500, default='post_id')
-    comments= models.TextField(blank=True)
+    comments= models.TextField(blank=True
+    )
 
     def __str__(self):
         return self.username

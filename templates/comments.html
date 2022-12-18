@@ -16,9 +16,10 @@
         <button type="submit">submit</button>
     </div> 
 </form>
+
+<strong>{{commentcount}} comments</strong>
 {% for comment in comments %}
 <div class="container">
-
     <div >
         <h4>{{comment.username}}</h4>
         <p>{{comment.comments}}</p>
