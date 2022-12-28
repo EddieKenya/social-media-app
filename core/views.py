@@ -4,8 +4,10 @@ from django.contrib.auth.models import User
 from django.contrib import messages,auth
 from.models import *
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
+
 def sign_up(request):
     if request.method == "POST":
         username = request.POST['username']
@@ -40,6 +42,8 @@ def sign_up(request):
     else:
         return render(request, 'signup.html')
 
+
+@csrf_exempt
 @login_required(login_url='login')
 def home (request):
     user_profile = Profile.objects.get(user = request.user)
