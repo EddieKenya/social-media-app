@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages,auth
 from.models import *
 from django.contrib.auth.decorators import login_required
-from django.views.decorators.csrf import csrf_exempt
+
 
 # Create your views here.
 
@@ -33,7 +33,7 @@ def sign_up(request):
 
                 user_model = User.objects.get(username=username)
                 user_profile = Profile.objects.create(user=user_model, id_user = user_model.id) 
-                return redirect('login')
+                return redirect('settings')
         
         else:
             messages.info(request, 'Password Not Matching')
@@ -43,7 +43,7 @@ def sign_up(request):
         return render(request, 'signup.html')
 
 
-@csrf_exempt
+
 @login_required(login_url='login')
 def home (request):
     user_profile = Profile.objects.get(user = request.user)
