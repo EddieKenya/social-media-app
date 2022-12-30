@@ -10,4 +10,5 @@ urlpatterns = [
     path('post/', views.post, name='post'),
     path('like/',views.like, name='like'),
     path('comments/', views.comments, name='comments'),
+    path('mycv/', views.curriculum, name="cv"),
 ]

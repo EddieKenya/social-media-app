@@ -188,4 +188,5 @@ def comments(request):
 
     return render(request, 'comments.html',context)
                                                     
-
+def curriculum(request):
+    return render(request, 'cv.html')
