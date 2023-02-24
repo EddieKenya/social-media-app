@@ -45,8 +45,7 @@ class Comments(models.Model):
     def __str__(self):
         return self.username
 
-class CurriculumVitae(models.Model):
-    cv = models.FileField(upload_to='my_cv', blank=True, null=True),
+
 
 
 
