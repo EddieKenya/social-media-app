@@ -12,8 +12,6 @@ def sign_up(request):
     if request.method == "POST":
         username = request.POST['username']
         email = request.POST ['email']
-        firstname = request.POST ['firstname']
-        lastname = request.POST ['lastname']
         passwword = request.POST ['password']
         password2 = request.POST ['password2']
 
@@ -26,9 +24,6 @@ def sign_up(request):
                 return redirect('signup')
             else:
                 new_user = User.objects.create_user(username=username, email=email,  password=passwword)
-                # new_user.is_active = False
-                # new_user.first_name = firstname
-                # new_user.last_name = lastname
                 new_user.save()
 
                 user_model = User.objects.get(username=username)
