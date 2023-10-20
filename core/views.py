@@ -28,6 +28,7 @@ def sign_up(request):
 
                 user_model = User.objects.get(username=username)
                 user_profile = Profile.objects.create(user=user_model, id_user = user_model.id) 
+                user_profile.save()
                 return redirect('settings')
         
         else:
